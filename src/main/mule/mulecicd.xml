@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="c8108ece-5688-4ffd-8a11-a6c15d9adc83" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<http:request-config name="HTTP_Request_configuration" doc:name="HTTP Request configuration" doc:id="25bc1cba-fd18-46fe-8c2f-f5cd96db6644" >
+		<http:request-connection host="jsonplaceholder.typicode.com" port="80" />
+	</http:request-config>
+	<configuration-properties doc:name="Configuration properties" doc:id="46440221-c117-4853-b606-7f065e5ba62e" file="app.properties" />
+	<flow name="mulecicdFlow" doc:id="794df9a7-99b3-499a-aecd-2817b73c119b" >
+		<http:listener doc:name="Listener" doc:id="2430433d-5ba9-463e-82ec-220f814ac837" config-ref="HTTP_Listener_config" path="/"/>
+		<http:request method="GET" doc:name="Request" doc:id="1b79d989-bebd-4cec-b0fb-0b97b938cbe9" config-ref="HTTP_Request_configuration" path="/posts"/>
+	</flow>
+</mule>
