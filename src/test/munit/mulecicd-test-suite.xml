@@ -13,7 +13,7 @@
 			<flow-ref doc:name="Flow-ref to mulecicdFlow" doc:id="8b5eab68-9ff0-441c-9fb0-b286b18937f2" name="mulecicdFlow"/>
 		</munit:execution>
 		<munit:validation >
-			<munit-tools:assert-that doc:name="Assert that" doc:id="28cbdf4d-4050-4dcd-85d4-541c645020c9" expression="#[attributes.statusCode]" is="#[MunitTools::equalTo(200)]"/>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="28cbdf4d-4050-4dcd-85d4-541c645020c9" expression="#[attributes.statusCode]" is="#[MunitTools::equalTo(400)]"/>
 		</munit:validation>
 	</munit:test>
 
